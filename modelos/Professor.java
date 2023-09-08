@@ -19,23 +19,23 @@ public class Professor {
         this.turno = turno;
     }
 
-    public String getNome() {
+    public String obterNome() {
         return nome;
     }
 
-    public String getCpf() {
+    public String obterCPF() {
         return cpf;
     }
 
-    public double getSalario() {
+    public double obterSalario() {
         return salario;
     }
 
-    public String getEspecialidade() {
+    public String obterEspecialidade() {
         return especialidade;
     }
 
-    public String getTurno() {
+    public String obterTurno() {
         return turno;
     }
 

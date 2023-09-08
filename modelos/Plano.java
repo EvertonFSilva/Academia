@@ -22,23 +22,23 @@ public class Plano {
         this.preco = preco;
     }
 
-    public String getNome() {
+    public String obterNome() {
         return nome;
     }
 
-    public Periodo getPeriodo() {
+    public Periodo obterPeriodo() {
         return periodo;
     }
 
-    public List<Modalidade> getModalidadesDisponiveis() {
+    public List<Modalidade> obterModalidadesDisponiveis() {
         return modalidadesDisponiveis;
     }
 
-    public List<FormaPagamento> getFormasPagamentoAceitas() {
+    public List<FormaPagamento> obterFormasPagamentoAceitas() {
         return formasPagamentoAceitas;
     }
 
-    public double getPreco() {
+    public double obterPreco() {
         return preco;
     }
 }

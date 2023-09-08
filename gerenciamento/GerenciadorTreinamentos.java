@@ -58,8 +58,8 @@ public class GerenciadorTreinamentos implements OperacoesTreinamento {
             List<Treinamento> treinos = treinosPorData.get(data);
             if (treinos != null) {
                 for (Treinamento treinamento : treinos) {
-                    if (treinamento.getData().equals(data)) {
-                        treinamento.setDetalhes(detalhes);
+                    if (treinamento.obterData().equals(data)) {
+                        treinamento.definirDetalhes(detalhes);
                         return true;
                     }
                 }
@@ -82,7 +82,7 @@ public class GerenciadorTreinamentos implements OperacoesTreinamento {
 
         for (Treinamento treinamento : treinos) {
             resultado.append("Data: ").append(dateFormat.format(data)).append("\n");
-            resultado.append("Detalhes: ").append(treinamento.getDetalhes()).append("\n");
+            resultado.append("Detalhes: ").append(treinamento.obterDetalhes()).append("\n");
             resultado.append("\n");
         }
 

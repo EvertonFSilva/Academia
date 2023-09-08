@@ -11,15 +11,15 @@ public class Treinamento {
         this.data = data;
     }
 
-    public String getDetalhes() {
+    public String obterDetalhes() {
         return detalhes;
     }
     
-    public void setDetalhes(String detalhes) {
+    public void definirDetalhes(String detalhes) {
     	this.detalhes = detalhes;
     }
 
-    public Date getData() {
+    public Date obterData() {
         return data;
     }
 }

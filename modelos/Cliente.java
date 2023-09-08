@@ -13,19 +13,19 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public String getNome() {
+    public String obterNome() {
         return nome;
     }
 
-    public String getCpf() {
+    public String obterCPF() {
         return cpf;
     }
 
-    public String getEndereco() {
+    public String obterEndereco() {
         return endereco;
     }
 
-    public String getTelefone() {
+    public String obterTelefone() {
         return telefone;
     }
 }

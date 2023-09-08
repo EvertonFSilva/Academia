@@ -13,11 +13,11 @@ public class Aula {
         this.horario = horario;
     }
 
-    public Modalidade getModalidade() {
+    public Modalidade obterModalidade() {
         return modalidade;
     }
 
-    public Date getHorario() {
+    public Date obterHorario() {
         return horario;
     }
 }

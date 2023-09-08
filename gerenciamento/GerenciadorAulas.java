@@ -35,7 +35,7 @@ public class GerenciadorAulas implements OperacoesAula {
             List<Aula> aulas = aulasAgendadas.get(cliente);
             if (aulas != null) {
                 for (Aula aula : aulas) {
-                    if (aula.getModalidade() == modalidade && aula.getHorario().equals(horario)) {
+                    if (aula.obterModalidade() == modalidade && aula.obterHorario().equals(horario)) {
                         aulas.remove(aula);
                         return true;
                     }

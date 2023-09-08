@@ -119,60 +119,60 @@ public class Principal {
         for (Cliente cliente : clientesComPlanos) {
             Plano planoDoCliente = gerenciadorPlanos.obterPlanoDoCliente(cliente);
             
-            System.out.println("Cliente: " + cliente.getNome());
-            System.out.println("Plano: " + planoDoCliente.getNome());
-            System.out.println("Período: " + planoDoCliente.getPeriodo());
-            System.out.println("Modalidades Disponíveis: " + planoDoCliente.getModalidadesDisponiveis());
-            System.out.println("Formas de Pagamento Aceitas: " + planoDoCliente.getFormasPagamentoAceitas());
-            System.out.println("Preço: R$" + planoDoCliente.getPreco());
+            System.out.println("Cliente: " + cliente.obterNome());
+            System.out.println("Plano: " + planoDoCliente.obterNome());
+            System.out.println("Período: " + planoDoCliente.obterPeriodo());
+            System.out.println("Modalidades Disponíveis: " + planoDoCliente.obterModalidadesDisponiveis());
+            System.out.println("Formas de Pagamento Aceitas: " + planoDoCliente.obterFormasPagamentoAceitas());
+            System.out.println("Preço: R$" + planoDoCliente.obterPreco());
             System.out.println();
         }
 
         System.out.println("=== Alunos de Professores ===");
         System.out.println("Alunos do Professor Carlos:");
         for (Cliente aluno : alunosProfessorCarlos) {
-            System.out.println("- " + aluno.getNome());
+            System.out.println("- " + aluno.obterNome());
         }
 
         System.out.println("\nAlunos do Professor Ana:");
         for (Cliente aluno : alunosProfessorAna) {
-            System.out.println("- " + aluno.getNome());
+            System.out.println("- " + aluno.obterNome());
         }
 
         System.out.println();
 
         // Listar aulas agendadas
 
-        System.out.println("=== Aulas Agendadas para " + clienteJoao.getNome() + " (CPF: " + clienteJoao.getCpf() + ") ===");
+        System.out.println("=== Aulas Agendadas para " + clienteJoao.obterNome() + " (CPF: " + clienteJoao.obterCPF() + ") ===");
         for (Aula aula : gerenciadorAulas.listarAulasAgendadas(clienteJoao)) {
-            System.out.println("- Modalidade: " + aula.getModalidade() + ", Horário: " + dateFormat.format(aula.getHorario()));
+            System.out.println("- Modalidade: " + aula.obterModalidade() + ", Horário: " + dateFormat.format(aula.obterHorario()));
         }
         System.out.println();
 
-        System.out.println("=== Aulas Agendadas para " + clienteMaria.getNome() + " (CPF: " + clienteMaria.getCpf() + ") ===");
+        System.out.println("=== Aulas Agendadas para " + clienteMaria.obterNome() + " (CPF: " + clienteMaria.obterCPF() + ") ===");
         for (Aula aula : gerenciadorAulas.listarAulasAgendadas(clienteMaria)) {
-            System.out.println("- Modalidade: " + aula.getModalidade() + ", Horário: " + dateFormat.format(aula.getHorario()));
+            System.out.println("- Modalidade: " + aula.obterModalidade() + ", Horário: " + dateFormat.format(aula.obterHorario()));
         }
         System.out.println();
 
-        System.out.println("=== Aulas Agendadas para " + clienteLucas.getNome() + " (CPF: " + clienteLucas.getCpf() + ") ===");
+        System.out.println("=== Aulas Agendadas para " + clienteLucas.obterNome() + " (CPF: " + clienteLucas.obterCPF() + ") ===");
         for (Aula aula : gerenciadorAulas.listarAulasAgendadas(clienteLucas)) {
-            System.out.println("- Modalidade: " + aula.getModalidade() + ", Horário: " + dateFormat.format(aula.getHorario()));
+            System.out.println("- Modalidade: " + aula.obterModalidade() + ", Horário: " + dateFormat.format(aula.obterHorario()));
         }
         System.out.println();
       
         String treinamentosClienteJoao = gerenciadorTreinamentos.visualizarTreinamentosEmData(clienteJoao, dataTreinamentoJoao);
-        System.out.println("Treinamentos para " + clienteJoao.getNome() + ":\n" + treinamentosClienteJoao);
+        System.out.println("Treinamentos para " + clienteJoao.obterNome() + ":\n" + treinamentosClienteJoao);
 
         String treinamentosClienteMaria = gerenciadorTreinamentos.visualizarTreinamentosEmData(clienteMaria, dataTreinamentoMaria);
-        System.out.println("Treinamentos para " + clienteMaria.getNome() + ":\n" + treinamentosClienteMaria);
+        System.out.println("Treinamentos para " + clienteMaria.obterNome() + ":\n" + treinamentosClienteMaria);
 
         String treinamentosClienteLucas = gerenciadorTreinamentos.visualizarTreinamentosEmData(clienteLucas, dataTreinamentoLucas);
-        System.out.println("Treinamentos para " + clienteLucas.getNome() + ":\n" + treinamentosClienteLucas);
+        System.out.println("Treinamentos para " + clienteLucas.obterNome() + ":\n" + treinamentosClienteLucas);
         
         gerenciadorTreinamentos.excluirTreinamento(clienteJoao, dataTreinamentoLucas);
 
-        System.out.println("Treinamentos para " + clienteJoao.getNome() + ":\n" + gerenciadorTreinamentos.visualizarTreinamentosEmData(clienteJoao, dataTreinamentoJoao));
+        System.out.println("Treinamentos para " + clienteJoao.obterNome() + ":\n" + gerenciadorTreinamentos.visualizarTreinamentosEmData(clienteJoao, dataTreinamentoJoao));
 
     }
 }

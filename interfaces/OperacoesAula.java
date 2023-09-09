@@ -9,6 +9,6 @@ import modelos.Cliente;
 
 public interface OperacoesAula {
     boolean agendarAula(Cliente cliente, Modalidade modalidade, Date horario);
-    boolean cancelarAula(Cliente cliente, Modalidade modalidade, Date horario);
+    boolean cancelarAula(Cliente cliente, Date horario);
     List<Aula> listarAulasAgendadas(Cliente cliente);
 }

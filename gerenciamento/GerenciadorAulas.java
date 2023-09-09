@@ -30,12 +30,12 @@ public class GerenciadorAulas implements OperacoesAula {
     }
 
     @Override
-    public boolean cancelarAula(Cliente cliente, Modalidade modalidade, Date horario) {
+    public boolean cancelarAula(Cliente cliente, Date horario) {
         if (cliente != null) {
             List<Aula> aulas = aulasAgendadas.get(cliente);
             if (aulas != null) {
                 for (Aula aula : aulas) {
-                    if (aula.obterModalidade() == modalidade && aula.obterHorario().equals(horario)) {
+                    if (aula.obterHorario().equals(horario)) {
                         aulas.remove(aula);
                         return true;
                     }

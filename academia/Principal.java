@@ -14,6 +14,11 @@ import gerenciamento.GerenciadorClientes;
 import gerenciamento.GerenciadorPlanos;
 import gerenciamento.GerenciadorProfessores;
 import gerenciamento.GerenciadorTreinamentos;
+import interfaces.OperacoesAula;
+import interfaces.OperacoesCliente;
+import interfaces.OperacoesPlano;
+import interfaces.OperacoesProfessor;
+import interfaces.OperacoesTreinamento;
 import modelos.Aula;
 import modelos.Cliente;
 import modelos.Plano;
@@ -21,11 +26,11 @@ import modelos.Professor;
 
 public class Principal {
     public static void main(String[] args) throws ParseException {
-        GerenciadorClientes gerenciadorClientes = new GerenciadorClientes();
-        GerenciadorPlanos gerenciadorPlanos = new GerenciadorPlanos();
-        GerenciadorProfessores gerenciadorProfessores = new GerenciadorProfessores();
-        GerenciadorAulas gerenciadorAulas = new GerenciadorAulas();
-        GerenciadorTreinamentos gerenciadorTreinamentos = new GerenciadorTreinamentos();
+    	OperacoesCliente gerenciadorClientes = new GerenciadorClientes();
+    	OperacoesPlano gerenciadorPlanos = new GerenciadorPlanos();
+        OperacoesProfessor gerenciadorProfessores = new GerenciadorProfessores();
+        OperacoesAula gerenciadorAulas = new GerenciadorAulas();
+        OperacoesTreinamento gerenciadorTreinamentos = new GerenciadorTreinamentos();
 
         // Cadastro de clientes
         

@@ -21,6 +21,7 @@ import interfaces.OperacoesProfessor;
 import interfaces.OperacoesTreinamento;
 import modelos.Aula;
 import modelos.Cliente;
+import modelos.Endereco;
 import modelos.Plano;
 import modelos.Professor;
 
@@ -33,15 +34,19 @@ public class Principal {
         OperacoesTreinamento gerenciadorTreinamentos = new GerenciadorTreinamentos();
 
         // Cadastro de clientes
+
+        Endereco enderecoJoao = new Endereco("Rua A", "123", "Apto 4B", "Cidade 1", "Estado 1", "12345-678");
+        Endereco enderecoMaria = new Endereco("Rua B", "456", "Casa 2", "Cidade 2", "Estado 2", "98765-432");
+        Endereco enderecoLucas = new Endereco("Rua C", "789", "Casa 3", "Cidade 3", "Estado 3", "54321-876");
+
+        gerenciadorClientes.cadastrarCliente("João", "123456789", enderecoJoao, "999-9999");
+        gerenciadorClientes.cadastrarCliente("Maria", "987654321", enderecoMaria, "888-8888");
+        gerenciadorClientes.cadastrarCliente("Lucas", "555555555", enderecoLucas, "777-7777");
         
-        gerenciadorClientes.cadastrarCliente("João", "123456789", "Rua A", "999-9999");
-        gerenciadorClientes.cadastrarCliente("Maria", "987654321", "Rua B", "888-8888");
-        gerenciadorClientes.cadastrarCliente("Lucas", "555555555", "Rua C", "777-7777");
 
         Cliente clienteJoao = gerenciadorClientes.buscarCliente("123456789");
         Cliente clienteMaria = gerenciadorClientes.buscarCliente("987654321");
         Cliente clienteLucas = gerenciadorClientes.buscarCliente("555555555");
-
 
         // Cadastro de planos aos clientes
         gerenciadorPlanos.registrarPlanoParaCliente(clienteJoao, "Mensal", Periodo.MENSAL,

@@ -12,3 +12,4 @@ public interface OperacoesAula {
     boolean cancelarAula(Cliente cliente, Date horario);
     List<Aula> listarAulasAgendadas(Cliente cliente);
 }
+

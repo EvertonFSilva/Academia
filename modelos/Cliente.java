@@ -3,10 +3,10 @@ package modelos;
 public class Cliente {
     private String nome;
     private String cpf;
-    private String endereco;
+    private Endereco endereco;
     private String telefone;
 
-    public Cliente(String nome, String cpf, String endereco, String telefone) {
+    public Cliente(String nome, String cpf, Endereco endereco, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -21,7 +21,7 @@ public class Cliente {
         return cpf;
     }
 
-    public String obterEndereco() {
+    public Endereco obterEndereco() {
         return endereco;
     }
 

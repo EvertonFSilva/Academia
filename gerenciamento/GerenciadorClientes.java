@@ -1,6 +1,7 @@
 package gerenciamento;
 
 import modelos.Cliente;
+import modelos.Endereco;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class GerenciadorClientes implements OperacoesCliente {
     private Map<String, Cliente> clientes = new HashMap<>();
 
     @Override
-    public boolean cadastrarCliente(String nome, String cpf, String endereco, String telefone) {
+    public boolean cadastrarCliente(String nome, String cpf, Endereco endereco, String telefone) {
         if (!clientes.containsKey(cpf)) {
             Cliente cliente = new Cliente(nome, cpf, endereco, telefone);
             clientes.put(cpf, cliente);

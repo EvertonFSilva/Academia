@@ -14,6 +14,14 @@ Este projeto foi desenvolvido como parte da Disciplina de Projeto Orientado a Ob
 
 **Gerenciamento de Treinamentos:** Crie e gerencie treinamentos individuais para os clientes, incluindo detalhes, datas e horários.
 
+## Dependências
+
+#### Tutorial de Instalação para o Eclipse:
+
+Botão Direito do Mouse em **JRE System Libray** -> **Build Path** -> **Configure Build Path** -> **Libraries** -> **Add External Jars** -> **Selecione o .JAR Baixado** -> **Apply and Close**
+
+**MySQL Connector:** https://www.mediafire.com/file/0cdwnegfwdqfl22/mysql-connector-j-8.1.0.jar/file
+
 ## SQL - Banco De Dados
 
 create database Academia;

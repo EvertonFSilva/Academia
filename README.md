@@ -17,8 +17,11 @@ Este projeto foi desenvolvido como parte da Disciplina de Projeto Orientado a Ob
 ## SQL - Banco De Dados
 
 create database Academia;
+
 use Academia;
+
 -- Tabela de Enderecos
+
 CREATE TABLE Enderecos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cep VARCHAR(10),
@@ -30,6 +33,7 @@ CREATE TABLE Enderecos (
 );
 
 -- Tabela de Clientes
+
 CREATE TABLE Clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cpf VARCHAR(14) UNIQUE,
@@ -40,6 +44,7 @@ CREATE TABLE Clientes (
 );
 
 -- Tabela de Professores
+
 CREATE TABLE Professores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cpf VARCHAR(14) UNIQUE,
@@ -52,6 +57,7 @@ CREATE TABLE Professores (
 );
 
 -- Tabela de Treinamentos
+
 CREATE TABLE Treinamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     detalhes TEXT,
@@ -61,6 +67,7 @@ CREATE TABLE Treinamentos (
 );
 
 -- Tabela de Planos
+
 CREATE TABLE Planos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
@@ -71,6 +78,7 @@ CREATE TABLE Planos (
 );
 
 -- Tabela de Aulas
+
 CREATE TABLE Aulas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     modalidade VARCHAR(255),
@@ -79,7 +87,8 @@ CREATE TABLE Aulas (
     FOREIGN KEY (cliente_id) REFERENCES Clientes(id)
 );
 
--- Tabela de Alunos do Professor (relação muitos-para-muitos)
+-- Tabela de Alunos do Professor
+
 CREATE TABLE Alunos_Professores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     professor_id INT,

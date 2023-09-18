@@ -1,28 +1,11 @@
 package modelos;
 
-public class Cliente {
-    private String nome;
-    private String cpf;
-    private Endereco endereco;
+public class Cliente extends Pessoa {
     private String telefone;
 
     public Cliente(String nome, String cpf, Endereco endereco, String telefone) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.endereco = endereco;
+        super(nome, cpf, endereco);
         this.telefone = telefone;
-    }
-
-    public String obterNome() {
-        return nome;
-    }
-
-    public String obterCPF() {
-        return cpf;
-    }
-
-    public Endereco obterEndereco() {
-        return endereco;
     }
 
     public String obterTelefone() {

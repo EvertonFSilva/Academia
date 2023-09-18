@@ -2,9 +2,9 @@ package modelos;
 
 import java.util.List;
 
-import enumeracoes.FormaPagamento;
-import enumeracoes.Modalidade;
-import enumeracoes.Periodo;
+import enumeradores.FormaPagamento;
+import enumeradores.Modalidade;
+import enumeradores.Periodo;
 
 public class Plano {
     private String nome;

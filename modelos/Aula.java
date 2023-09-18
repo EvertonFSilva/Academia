@@ -2,7 +2,7 @@ package modelos;
 
 import java.util.Date;
 
-import enumeracoes.Modalidade;
+import enumeradores.Modalidade;
 
 public class Aula {
     private Modalidade modalidade;

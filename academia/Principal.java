@@ -6,19 +6,19 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import enumeracoes.FormaPagamento;
-import enumeracoes.Modalidade;
-import enumeracoes.Periodo;
-import gerenciamento.GerenciadorAulas;
-import gerenciamento.GerenciadorClientes;
-import gerenciamento.GerenciadorPlanos;
-import gerenciamento.GerenciadorProfessores;
-import gerenciamento.GerenciadorTreinamentos;
-import interfaces.OperacoesAula;
-import interfaces.OperacoesCliente;
-import interfaces.OperacoesPlano;
-import interfaces.OperacoesProfessor;
-import interfaces.OperacoesTreinamento;
+import enumeradores.FormaPagamento;
+import enumeradores.Modalidade;
+import enumeradores.Periodo;
+import gerenciadores.GerenciadorAulas;
+import gerenciadores.GerenciadorClientes;
+import gerenciadores.GerenciadorPlanos;
+import gerenciadores.GerenciadorProfessores;
+import gerenciadores.GerenciadorTreinamentos;
+import interfaces.ServicoAulas;
+import interfaces.ServicoClientes;
+import interfaces.ServicoPlanos;
+import interfaces.ServicoProfessores;
+import interfaces.ServicoTreinamentos;
 import modelos.Aula;
 import modelos.Cliente;
 import modelos.Endereco;
@@ -27,17 +27,18 @@ import modelos.Professor;
 
 public class Principal {
     public static void main(String[] args) throws ParseException {
-    	OperacoesCliente gerenciadorClientes = new GerenciadorClientes();
-    	OperacoesPlano gerenciadorPlanos = new GerenciadorPlanos();
-        OperacoesProfessor gerenciadorProfessores = new GerenciadorProfessores();
-        OperacoesAula gerenciadorAulas = new GerenciadorAulas();
-        OperacoesTreinamento gerenciadorTreinamentos = new GerenciadorTreinamentos();
+    	ServicoClientes gerenciadorClientes = new GerenciadorClientes();
+    	ServicoPlanos gerenciadorPlanos = new GerenciadorPlanos();
+        ServicoProfessores gerenciadorProfessores = new GerenciadorProfessores();
+        ServicoAulas gerenciadorAulas = new GerenciadorAulas();
+        ServicoTreinamentos gerenciadorTreinamentos = new GerenciadorTreinamentos();
 
         // Cadastro de clientes
 
         Endereco enderecoJoao = new Endereco("Rua A", "123", "Apto 4B", "Cidade 1", "Estado 1", "12345-678");
         Endereco enderecoMaria = new Endereco("Rua B", "456", "Casa 2", "Cidade 2", "Estado 2", "98765-432");
         Endereco enderecoLucas = new Endereco("Rua C", "789", "Casa 3", "Cidade 3", "Estado 3", "54321-876");
+        Endereco enderecoTeste = new Endereco("Rua A", "123", "Apto 4B", "Cidade 1", "Estado 1", "12345-678");
 
         gerenciadorClientes.cadastrarCliente("João", "123456789", enderecoJoao, "999-9999");
         gerenciadorClientes.cadastrarCliente("Maria", "987654321", enderecoMaria, "888-8888");
@@ -58,8 +59,8 @@ public class Principal {
                 Arrays.asList(FormaPagamento.CARTAO_DEBITO, FormaPagamento.PIX), 200.0);
 
         // Cadastro de professores
-        gerenciadorProfessores.contratarProfessor("Carlos", "111111111", 2000.0, "Musculação", "Manhã");
-        gerenciadorProfessores.contratarProfessor("Ana", "222222222", 1800.0, "Yoga", "Tarde");
+        gerenciadorProfessores.contratarProfessor("Carlos", "111111111", enderecoTeste, 2000.0, "Musculação", "Manhã");
+        gerenciadorProfessores.contratarProfessor("Ana", "222222222", enderecoTeste, 1800.0, "Yoga", "Tarde");
 
         // Atribuir alunos aos professores        
         Professor professorCarlos = gerenciadorProfessores.buscarProfessor("111111111");

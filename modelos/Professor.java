@@ -3,28 +3,17 @@ package modelos;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Professor {
-    private String nome;
-    private String cpf;
+public class Professor extends Pessoa {
     private double salario;
     private String especialidade;
     private String turno;
     private List<Cliente> alunos = new ArrayList<>();
 
-    public Professor(String nome, String cpf, double salario, String especialidade, String turno) {
-        this.nome = nome;
-        this.cpf = cpf;
+    public Professor(String nome, String cpf, Endereco endereco, double salario, String especialidade, String turno) {
+        super(nome, cpf, endereco);
         this.salario = salario;
         this.especialidade = especialidade;
         this.turno = turno;
-    }
-
-    public String obterNome() {
-        return nome;
-    }
-
-    public String obterCPF() {
-        return cpf;
     }
 
     public double obterSalario() {

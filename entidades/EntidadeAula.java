@@ -2,18 +2,18 @@ package entidades;
 
 import java.util.Date;
 
-import modalidades.ServicoModalidade;
+import enumeradores.EnumeradorModalidade;
 
 public class EntidadeAula {
-	private ServicoModalidade modalidade;
+	private EnumeradorModalidade modalidade;
 	private Date horario;
 
-	public EntidadeAula(ServicoModalidade modalidade, Date horario) {
+	public EntidadeAula(EnumeradorModalidade modalidade, Date horario) {
 		this.modalidade = modalidade;
 		this.horario = horario;
 	}
 
-	public ServicoModalidade obterModalidade() {
+	public EnumeradorModalidade obterModalidade() {
 		return modalidade;
 	}
 
@@ -21,6 +21,5 @@ public class EntidadeAula {
 		return horario;
 	}
 }
-
 
 

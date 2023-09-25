@@ -2,7 +2,6 @@ package banco.repositorios.operacoes;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -13,8 +12,7 @@ import banco.repositorios.interfaces.ServicoRepositorioAula;
 import banco.repositorios.interfaces.ServicoRepositorioCliente;
 import entidades.EntidadeAula;
 import entidades.EntidadeCliente;
-import modalidades.ModalidadeFactory;
-import modalidades.ServicoModalidade;
+import enumeradores.EnumeradorModalidade;
 
 public class RepositorioAulaSQL implements ServicoRepositorioAula {
 
@@ -25,10 +23,10 @@ public class RepositorioAulaSQL implements ServicoRepositorioAula {
 	}
 
 	@Override
-	public boolean agendarAula(String cpf, ServicoModalidade modalidade, Date horario) {
+	public boolean agendarAula(String cpf, EnumeradorModalidade modalidade, Date horario) {
 		try {
 			OperacoesBancoDeDados.inserir("INSERT INTO Aulas (modalidade, horario, cliente_id) VALUES (?, ?, ?)",
-					modalidade.getNome(), horario, repositorioCliente.buscarIdPorCpf(cpf));
+					modalidade.toString(), horario, repositorioCliente.buscarIdPorCpf(cpf));
 			return true;
 		} catch (SQLException e) {
 			System.out.println("Erro ao agendar aula no banco de dados.");
@@ -58,13 +56,7 @@ public class RepositorioAulaSQL implements ServicoRepositorioAula {
 				int clienteId = resultSet.getInt("cliente_id");
 				EntidadeCliente cliente = this.repositorioCliente.buscarClientePorId(clienteId);
 
-				String modalidadeNome = resultSet.getString("modalidade");
-
-				modalidadeNome = Normalizer.normalize(modalidadeNome, Normalizer.Form.NFD);
-				modalidadeNome = modalidadeNome.replaceAll("[^\\p{ASCII}]", "");
-
-				ServicoModalidade modalidade = ModalidadeFactory.criarModalidade(modalidadeNome);
-
+				EnumeradorModalidade modalidade = EnumeradorModalidade.valueOf(resultSet.getString("modalidade"));
 				Date horario = resultSet.getDate("horario");
 				EntidadeAula aula = new EntidadeAula(modalidade, horario);
 

@@ -5,13 +5,13 @@ import java.util.List;
 
 import entidades.EntidadeAula;
 import entidades.EntidadeCliente;
-import modalidades.ServicoModalidade;
+import enumeradores.EnumeradorModalidade;
 
 public interface ServicoGerenciadorAulas {
 
 	void carregarAulasDoBanco();
 
-	boolean agendarAula(EntidadeCliente cliente, ServicoModalidade modalidade, Date horario);
+	boolean agendarAula(EntidadeCliente cliente, EnumeradorModalidade modalidade, Date horario);
 
 	boolean cancelarAula(String cpf, Date horario);
 

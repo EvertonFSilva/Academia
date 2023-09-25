@@ -20,6 +20,7 @@ import entidades.EntidadeEndereco;
 import entidades.EntidadePlano;
 import entidades.EntidadeProfessor;
 import enumeradores.EnumeradorFormaPagamento;
+import enumeradores.EnumeradorModalidade;
 import enumeradores.EnumeradorPeriodo;
 import gerenciadores.interfaces.ServicoGerenciadorAulas;
 import gerenciadores.interfaces.ServicoGerenciadorClientes;
@@ -28,12 +29,9 @@ import gerenciadores.interfaces.ServicoGerenciadorProfessores;
 import gerenciadores.interfaces.ServicoGerenciadorTreinamentos;
 import gerenciadores.operacoes.GerenciadorAulas;
 import gerenciadores.operacoes.GerenciadorClientes;
-import gerenciadores.operacoes.GerenciadorModalidades;
 import gerenciadores.operacoes.GerenciadorPlanos;
 import gerenciadores.operacoes.GerenciadorProfessores;
 import gerenciadores.operacoes.GerenciadorTreinamentos;
-import modalidades.ModalidadeFactory;
-import modalidades.ServicoModalidade;
 
 public class Principal {
 	public static void main(String[] args) throws ParseException {
@@ -74,26 +72,14 @@ public class Principal {
 		EntidadeCliente clienteMaria = gerenciadorClientes.buscarCliente("987654321");
 		EntidadeCliente clienteLucas = gerenciadorClientes.buscarCliente("555555555");
 
-		// Registrar modalidades
-        GerenciadorModalidades gerenciadorModalidades = new GerenciadorModalidades();
-
-		gerenciadorModalidades.registrarModalidade("Musculacao");
-        gerenciadorModalidades.registrarModalidade("Funcional");
-        gerenciadorModalidades.registrarModalidade("Yoga");
-
-        // Criar instâncias das modalidades desejadas
-        ServicoModalidade musculacao = ModalidadeFactory.criarModalidade("Musculacao");
-        ServicoModalidade funcional = ModalidadeFactory.criarModalidade("Funcional");
-        ServicoModalidade yoga = ModalidadeFactory.criarModalidade("Yoga");
-
 		// Cadastro de planos aos clientes
-        gerenciadorPlanos.registrarPlanoParaCliente(clienteJoao, "Mensal", EnumeradorPeriodo.MENSAL,
-                Arrays.asList(musculacao, funcional),
-                Arrays.asList(EnumeradorFormaPagamento.CARTAO_CREDITO, EnumeradorFormaPagamento.PIX), 150.0);
+		gerenciadorPlanos.registrarPlanoParaCliente(clienteJoao, "Mensal", EnumeradorPeriodo.MENSAL,
+				Arrays.asList(EnumeradorModalidade.MUSCULACAO, EnumeradorModalidade.FUNCIONAL),
+				Arrays.asList(EnumeradorFormaPagamento.CARTAO_CREDITO, EnumeradorFormaPagamento.PIX), 150.0);
 
-        gerenciadorPlanos.registrarPlanoParaCliente(clienteMaria, "Trimestral", EnumeradorPeriodo.TRIMESTRAL,
-                Arrays.asList(musculacao, yoga),
-                Arrays.asList(EnumeradorFormaPagamento.CARTAO_DEBITO, EnumeradorFormaPagamento.PIX), 200.0);
+		gerenciadorPlanos.registrarPlanoParaCliente(clienteMaria, "Trimestral", EnumeradorPeriodo.TRIMESTRAL,
+				Arrays.asList(EnumeradorModalidade.MUSCULACAO, EnumeradorModalidade.YOGA),
+				Arrays.asList(EnumeradorFormaPagamento.CARTAO_DEBITO, EnumeradorFormaPagamento.PIX), 200.0);
 
 		// Cadastro de professores
 		gerenciadorProfessores.contratarProfessor("Carlos", "111111111", enderecoTeste, 2000.0, "Musculação", "Manhã");
@@ -112,9 +98,9 @@ public class Principal {
 		List<EntidadeCliente> alunosProfessorAna = gerenciadorProfessores.listarAlunosDoProfessor(professorAna);
 
 		// Criar um treinamento para o cliente
-		String detalhesTreinamentoJoao = "Treinamento de " + musculacao.getNome() + ":\n";
+		String detalhesTreinamentoJoao = "Treinamento de " + EnumeradorModalidade.MUSCULACAO + ":\n";
 		detalhesTreinamentoJoao += "1. Aquecimento: 10 minutos de esteira\n";
-		detalhesTreinamentoJoao += "2. Exercícios de " + musculacao.getNome() + ":\n";
+		detalhesTreinamentoJoao += "2. Exercícios de " + EnumeradorModalidade.MUSCULACAO + ":\n";
 		detalhesTreinamentoJoao += "   - Agachamento: 3 séries de 12 repetições\n";
 		detalhesTreinamentoJoao += "   - Supino: 3 séries de 10 repetições\n";
 		detalhesTreinamentoJoao += "3. Alongamento: 5 minutos\n";
@@ -124,9 +110,9 @@ public class Principal {
 
 		gerenciadorTreinamentos.criarTreinamento(clienteJoao, detalhesTreinamentoJoao, dataTreinamentoJoao);
 
-		String detalhesTreinamentoMaria = "Treinamento de " + yoga.getNome() + ":\n";
+		String detalhesTreinamentoMaria = "Treinamento de " + EnumeradorModalidade.YOGA + ":\n";
 		detalhesTreinamentoMaria += "1. Aquecimento: 10 minutos de alongamento\n";
-		detalhesTreinamentoMaria += "2. Exercícios de " + yoga.getNome()  + ":\n";
+		detalhesTreinamentoMaria += "2. Exercícios de " + EnumeradorModalidade.YOGA + ":\n";
 		detalhesTreinamentoMaria += "   - Posturas de Yoga: 3 séries de 15 segundos cada\n";
 		detalhesTreinamentoMaria += "   - Respiração profunda: 5 minutos\n";
 
@@ -134,9 +120,9 @@ public class Principal {
 
 		gerenciadorTreinamentos.criarTreinamento(clienteMaria, detalhesTreinamentoMaria, dataTreinamentoMaria);
 
-		String detalhesTreinamentoLucas = "Treinamento de " + musculacao.getNome() + ":\n";
+		String detalhesTreinamentoLucas = "Treinamento de " + EnumeradorModalidade.MUSCULACAO + ":\n";
 		detalhesTreinamentoLucas += "1. Aquecimento: 15 minutos de esteira\n";
-		detalhesTreinamentoLucas += "2. Exercícios de " + musculacao.getNome() + ":\n";
+		detalhesTreinamentoLucas += "2. Exercícios de " + EnumeradorModalidade.MUSCULACAO + ":\n";
 		detalhesTreinamentoLucas += "   - Levantamento de peso: 4 séries de 10 repetições\n";
 		detalhesTreinamentoLucas += "   - Flexões: 3 séries de 12 repetições\n";
 		detalhesTreinamentoLucas += "3. Alongamento: 7 minutos\n";
@@ -150,9 +136,9 @@ public class Principal {
 		Date horarioAulaMusculacaoTarde = dateFormat.parse("21/09/2023 15:00");
 		Date horarioAulaMusculacaoNoite = dateFormat.parse("24/09/2023 20:00");
 
-		gerenciadorAulas.agendarAula(clienteJoao, yoga, horarioAulaYogaManha);
-		gerenciadorAulas.agendarAula(clienteMaria, musculacao, horarioAulaMusculacaoTarde);
-		gerenciadorAulas.agendarAula(clienteLucas, musculacao, horarioAulaMusculacaoNoite);
+		gerenciadorAulas.agendarAula(clienteJoao, EnumeradorModalidade.YOGA, horarioAulaYogaManha);
+		gerenciadorAulas.agendarAula(clienteMaria, EnumeradorModalidade.MUSCULACAO, horarioAulaMusculacaoTarde);
+		gerenciadorAulas.agendarAula(clienteLucas, EnumeradorModalidade.MUSCULACAO, horarioAulaMusculacaoNoite);
 
 		gerenciadorAulas.cancelarAula("555555555", horarioAulaMusculacaoNoite);
 

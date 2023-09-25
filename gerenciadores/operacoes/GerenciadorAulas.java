@@ -9,8 +9,8 @@ import java.util.Map;
 import banco.repositorios.interfaces.ServicoRepositorioAula;
 import entidades.EntidadeAula;
 import entidades.EntidadeCliente;
+import enumeradores.EnumeradorModalidade;
 import gerenciadores.interfaces.ServicoGerenciadorAulas;
-import modalidades.ServicoModalidade;
 
 public class GerenciadorAulas implements ServicoGerenciadorAulas {
 	private Map<EntidadeCliente, List<EntidadeAula>> aulasAgendadas = new HashMap<>();
@@ -26,7 +26,7 @@ public class GerenciadorAulas implements ServicoGerenciadorAulas {
 	}
 
 	@Override
-	public boolean agendarAula(EntidadeCliente cliente, ServicoModalidade modalidade, Date horario) {
+	public boolean agendarAula(EntidadeCliente cliente, EnumeradorModalidade modalidade, Date horario) {
 	    if (cliente != null) {
 	        if (existeAulaAgendada(cliente.obterCPF(), horario)) {
 	            return false;

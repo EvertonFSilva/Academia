@@ -6,10 +6,11 @@ import java.util.Map;
 
 import entidades.EntidadeAula;
 import entidades.EntidadeCliente;
-import enumeradores.EnumeradorModalidade;
+import modalidades.ServicoModalidade;
 
 public interface ServicoRepositorioAula {
-	boolean agendarAula(String cpf, EnumeradorModalidade modalidade, Date horario);
+
+	boolean agendarAula(String cpf, ServicoModalidade modalidade, Date horario);
 
 	boolean cancelarAula(String cpf, Date horario);
 

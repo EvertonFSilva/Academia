@@ -3,17 +3,17 @@ package entidades;
 import java.util.List;
 
 import enumeradores.EnumeradorFormaPagamento;
-import enumeradores.EnumeradorModalidade;
 import enumeradores.EnumeradorPeriodo;
+import modalidades.ServicoModalidade;
 
 public class EntidadePlano {
 	private String nome;
 	private EnumeradorPeriodo periodo;
-	private List<EnumeradorModalidade> modalidadesDisponiveis;
+	private List<ServicoModalidade> modalidadesDisponiveis;
 	private List<EnumeradorFormaPagamento> formasPagamentoAceitas;
 	private double preco;
 
-	public EntidadePlano(String nome, EnumeradorPeriodo periodo, List<EnumeradorModalidade> modalidadesDisponiveis,
+	public EntidadePlano(String nome, EnumeradorPeriodo periodo, List<ServicoModalidade> modalidadesDisponiveis,
 			List<EnumeradorFormaPagamento> formasPagamentoAceitas, double preco) {
 		this.nome = nome;
 		this.periodo = periodo;
@@ -30,7 +30,7 @@ public class EntidadePlano {
 		return periodo;
 	}
 
-	public List<EnumeradorModalidade> obterModalidadesDisponiveis() {
+	public List<ServicoModalidade> obterModalidadesDisponiveis() {
 		return modalidadesDisponiveis;
 	}
 

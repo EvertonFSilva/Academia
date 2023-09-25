@@ -92,11 +92,15 @@ public class GerenciadorAulas implements ServicoGerenciadorAulas {
 	}
 
 	@Override
-	public List<EntidadeAula> listarAulasAgendadas(EntidadeCliente cliente) {
-		List<EntidadeAula> aulas = aulasAgendadas.get(cliente);
-		if (aulas == null) {
-			return new ArrayList<>();
-		}
-		return new ArrayList<>(aulas);
-	}
-}
+	public List<EntidadeAula> listarAulasAgendadas(String cpf) {
+	    List<EntidadeAula> aulas = new ArrayList<>();
+
+	    for (Map.Entry<EntidadeCliente, List<EntidadeAula>> entry : aulasAgendadas.entrySet()) {
+	        EntidadeCliente cliente = entry.getKey();
+	        if (cliente.obterCPF().equals(cpf)) {
+	            aulas.addAll(entry.getValue());
+	        }
+	    }
+
+	    return aulas;
+	}}

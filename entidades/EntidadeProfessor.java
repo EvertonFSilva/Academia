@@ -9,7 +9,8 @@ public class EntidadeProfessor extends EntidadePessoa {
 	private String turno;
 	private List<EntidadeCliente> alunos = new ArrayList<>();
 
-	public EntidadeProfessor(String nome, String cpf, EntidadeEndereco endereco, double salario, String especialidade, String turno) {
+	public EntidadeProfessor(String nome, String cpf, EntidadeEndereco endereco, double salario, String especialidade,
+			String turno) {
 		super(nome, cpf, endereco);
 		this.salario = salario;
 		this.especialidade = especialidade;
@@ -40,3 +41,4 @@ public class EntidadeProfessor extends EntidadePessoa {
 		return new ArrayList<>(alunos);
 	}
 }
+

@@ -8,13 +8,14 @@ import entidades.EntidadeCliente;
 import enumeradores.EnumeradorModalidade;
 
 public interface ServicoGerenciadorAulas {
+
 	void carregarAulasDoBanco();
 
 	boolean agendarAula(EntidadeCliente cliente, EnumeradorModalidade modalidade, Date horario);
 
 	boolean cancelarAula(String cpf, Date horario);
 
-	List<EntidadeAula> listarAulasAgendadas(EntidadeCliente cliente);
+	List<EntidadeAula> listarAulasAgendadas(String cpf);
 
 	boolean existeAulaAgendada(String cpf, Date horario);
 

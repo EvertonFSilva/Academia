@@ -25,8 +25,8 @@ public class RepositorioAulaSQL implements ServicoRepositorioAula {
 	@Override
 	public boolean agendarAula(String cpf, EnumeradorModalidade modalidade, Date horario) {
 		try {
-			OperacoesBancoDeDados.inserir("INSERT INTO Aulas (modalidade, horario, cliente_id) VALUES (?, ?, ?)", modalidade.toString(),
-					horario, repositorioCliente.buscarIdPorCpf(cpf));
+			OperacoesBancoDeDados.inserir("INSERT INTO Aulas (modalidade, horario, cliente_id) VALUES (?, ?, ?)",
+					modalidade.toString(), horario, repositorioCliente.buscarIdPorCpf(cpf));
 			return true;
 		} catch (SQLException e) {
 			System.out.println("Erro ao agendar aula no banco de dados.");
@@ -59,7 +59,7 @@ public class RepositorioAulaSQL implements ServicoRepositorioAula {
 				EnumeradorModalidade modalidade = EnumeradorModalidade.valueOf(resultSet.getString("modalidade"));
 				Date horario = resultSet.getDate("horario");
 				EntidadeAula aula = new EntidadeAula(modalidade, horario);
-				
+
 				List<EntidadeAula> aulasCliente = aulasAgendadas.getOrDefault(cliente, new ArrayList<>());
 				aulasCliente.add(aula);
 

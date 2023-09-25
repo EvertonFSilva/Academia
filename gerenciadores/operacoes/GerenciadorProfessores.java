@@ -13,7 +13,6 @@ import gerenciadores.interfaces.ServicoGerenciadorProfessores;
 
 public class GerenciadorProfessores implements ServicoGerenciadorProfessores {
 	private Map<String, EntidadeProfessor> professores = new HashMap<>();
-
 	private final ServicoRepositorioProfessor repositorioProfessor;
 
 	public GerenciadorProfessores(ServicoRepositorioProfessor repositorioProfessor) {
@@ -48,9 +47,9 @@ public class GerenciadorProfessores implements ServicoGerenciadorProfessores {
 	public boolean removerProfessor(String cpf) {
 		EntidadeProfessor professorRemovido = professores.remove(cpf);
 		if (professorRemovido != null) {
-        	this.repositorioProfessor.excluirProfessor(cpf);
-        }
-        return professorRemovido != null;
+			this.repositorioProfessor.excluirProfessor(cpf);
+		}
+		return professorRemovido != null;
 	}
 
 	@Override

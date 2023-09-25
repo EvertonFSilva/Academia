@@ -12,3 +12,4 @@ public class EntidadeCliente extends EntidadePessoa {
 		return telefone;
 	}
 }
+

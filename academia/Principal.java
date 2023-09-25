@@ -45,6 +45,7 @@ public class Principal {
     	
     	ServicoRepositorioProfessor repositorioProfessor = new RepositorioProfessorSQL(repositorioEndereco);
         ServicoGerenciadorProfessores gerenciadorProfessores = new GerenciadorProfessores(repositorioProfessor);
+        gerenciadorProfessores.carregarProfessoresDoBanco();
 
     	ServicoRepositorioAula repositorioAula = new RepositorioAulaSQL(repositorioCliente);
         ServicoGerenciadorAulas gerenciadorAulas = new GerenciadorAulas(repositorioAula);
@@ -176,19 +177,19 @@ public class Principal {
         // Listar aulas agendadas
 
         System.out.println("=== Aulas Agendadas para " + clienteJoao.obterNome() + " (CPF: " + clienteJoao.obterCPF() + ") ===");
-        for (EntidadeAula aula : gerenciadorAulas.listarAulasAgendadas(clienteJoao)) {
+        for (EntidadeAula aula : gerenciadorAulas.listarAulasAgendadas(clienteJoao.obterCPF())) {
             System.out.println("- Modalidade: " + aula.obterModalidade() + ", Horário: " + dateFormat.format(aula.obterHorario()));
         }
         System.out.println();
 
         System.out.println("=== Aulas Agendadas para " + clienteMaria.obterNome() + " (CPF: " + clienteMaria.obterCPF() + ") ===");
-        for (EntidadeAula aula : gerenciadorAulas.listarAulasAgendadas(clienteMaria)) {
+        for (EntidadeAula aula : gerenciadorAulas.listarAulasAgendadas(clienteMaria.obterCPF())) {
             System.out.println("- Modalidade: " + aula.obterModalidade() + ", Horário: " + dateFormat.format(aula.obterHorario()));
         }
         System.out.println();
 
         System.out.println("=== Aulas Agendadas para " + clienteLucas.obterNome() + " (CPF: " + clienteLucas.obterCPF() + ") ===");
-        for (EntidadeAula aula : gerenciadorAulas.listarAulasAgendadas(clienteLucas)) {
+        for (EntidadeAula aula : gerenciadorAulas.listarAulasAgendadas(clienteLucas.obterCPF())) {
             System.out.println("- Modalidade: " + aula.obterModalidade() + ", Horário: " + dateFormat.format(aula.obterHorario()));
         }
         System.out.println();
